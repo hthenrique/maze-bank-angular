@@ -1,1 +1,114 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+  --myRed: #EC0000;
+  --inputTextBoxColor: #E5E8E8;
+  --boxShadowDefault: 0 0 16px hsl(0deg 0% 0% / 0.190);
+}
+
+app-root {
+  width: 100%;
+  height: 100%;
+}
+
+app-login {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+app-main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+footer{
+  align-items: center;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: var(--boxShadowDefault);
+  border: 1px solid #e7e7e7;
+  margin-top: 30px;
+}
+
+footer p {
+  color: #6f7779;
+  padding: 15px;
+  margin: 0;
+  font-size: 0.8em;
+}
+
+img{
+  width: 100%;
+}
+
+.logo-header{
+  width: 145px;
+  height: 70px;
+  margin-left: 36px;
+  display: flex;
+  align-items: center;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Helvetica, sans-serif;
+}
+
+button{
+  background-color: var(--myRed);
+  border: none;
+  width: 100%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 15px;
+  color: white;
+  border-radius: 10px;
+}
+
+a {
+  font-size: 15px;
+  color: var(--myRed);
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  margin: 8px 0;
+  padding: 12px 20px;
+  display: inline-block;
+  border: 1px solid var(--inputTextBoxColor);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type=checkbox]{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5%;
+}
+
+@font-face
+{
+  font-family: helvetica;
+  font-style: normal;
+  font-weight: normal;
+  src: local("Helvetica");
+}
