@@ -15,6 +15,6 @@ export class LoginServiceService {
   constructor(private httpClient: HttpClient) { }
 
   loginUser(user:User):Observable<any>{
-    return this.httpClient.post<ServiceResponse>(`${this.baseUrl}`+ "/mazebank/authenticate/user", user)
+    return this.httpClient.post<ServiceResponse>(`${environment.baseUrl}`+"/mazebank/authenticate/user", user)
   }
 }

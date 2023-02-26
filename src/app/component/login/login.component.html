@@ -17,7 +17,7 @@
   <!--    <div class="form">-->
     <form (ngSubmit)="userLogin()">
         <div class="login-form">
-          <input type="text" placeholder={{usernameHint}} [(ngModel)]="user.username" id="username" maxlength="14" name="username">
+          <input type="text" placeholder={{usernameHint}} [(ngModel)]="user.username" id="username" maxlength="100" name="username">
           <input type="password" placeholder={{userpassHint}} [(ngModel)]="user.userpass" id="userpass" name="userpass">
           <div class="alert alert-danger" *ngIf="errorMessageId" id="errorMessageId" role="alert"> {{errorMessage}} </div>
 <!--          <button type="submit" (click)="goToPage()">{{loginButtonHint}}</button>-->
