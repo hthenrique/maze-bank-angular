@@ -1,0 +1,10 @@
+{
+  "configurations": [
+    {
+      "name": "ng serve",
+      "type": "command",
+      "program": "npm",
+      "args": ["serve"]
+    }
+  ]
+}

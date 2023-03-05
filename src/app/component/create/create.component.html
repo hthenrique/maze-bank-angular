@@ -1,0 +1,38 @@
+<body>
+<header>
+  <nav>
+    <div class="logo-header">
+      <a>
+        <img src="./assets/images/header_logo.png">
+      </a>
+    </div>
+  </nav>
+</header>
+
+<div class="container-form">
+
+  <div class="title"><h1>{{createTitle}}</h1></div>
+
+  <div class="">
+    <form (ngSubmit)="submitCreateUser()">
+        <div class="">
+          <input type="text" placeholder="Username" id="username" maxlength="50" name="username" [(ngModel)]="createUser.username">
+          <label class="errorLabel">{{userError}}</label>
+          <input type="text" placeholder="Email" id="email" maxlength="50" name="useremail" [(ngModel)]="createUser.useremail">
+          <label class="errorLabel">{{userEmailError}}</label>
+          <input type="password" placeholder="Password" id="userpass" maxlength="20" name="userpass" [(ngModel)]="createUser.userpass">
+          <label class="errorLabel">{{passError}}</label>
+          <input type="password" placeholder="Confirm Password" id="confirmPass" maxlength="20" name="confirmpass" [(ngModel)]="createUser.confirmPass">
+          <label class="errorLabel">{{confirmPassError}}</label>
+          <div class="alert alert-danger" *ngIf="errorMessageId" id="errorMessageId" role="alert"> {{serverErrorMessage}} </div>
+          <button type="submit">{{createButtonHint}}</button>
+       </div>
+    </form>
+  </div>
+
+</div>
+
+ <footer>
+    <p>Maze Bank Tower, Los Santos, CA 90071, USA</p>
+ </footer>
+</body>

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import {AppComponent} from "./app.component";
 import {MainComponent} from "./component/main/main.component";
 import {LoginComponent} from "./component/login/login.component";
+import {CreateComponent} from "./component/create/create.component";
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'main',
     component: MainComponent
+  },
+  {
+    path: 'create',
+    component: CreateComponent
   },
   { path: '**', redirectTo: '' }
 ];

@@ -2,9 +2,10 @@ import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from 'src/app/model/user/user';
-import {LoginServiceService} from "../../service/login-service.service";
-import {ServiceResponse} from "../../model/service/service-response";
+import {ServiceService} from "../../service/service.service";
 import {DOCUMENT} from "@angular/common";
+import {ErrorTemplate} from "../../model/response/error-template";
+import {SuccessResponse} from "../../model/response/success-response";
 
 @Component({
   selector: 'app-login',
@@ -13,45 +14,81 @@ import {DOCUMENT} from "@angular/common";
 })
 export class LoginComponent implements OnInit{
 
-  loginTitle: string = 'Login';
-  subTitle: string = 'Log in to enter the platform.';
-  usernameHint: string = 'Document number';
-  userpassHint: string = 'Password';
-  forgotPass: string = 'Forgot password?';
-  loginButtonHint: string = 'Enter';
-  errorMessage: string = '';
-
+  loginTitle: string;
+  subTitle: string;
+  usernameHint: string;
+  userpassHint: string;
+  userError:string;
+  passError:string;
+  createAccount: string;
+  loginButtonHint: string;
+  serverErrorMessage: string;
   errorMessageId: boolean = false;
 
   user:User = new User();
-  serviceResponse:ServiceResponse = new ServiceResponse();
 
 
-  constructor(@Inject(DOCUMENT) document: Document, private router: Router, private loginService:LoginServiceService) {
-
+  constructor(@Inject(DOCUMENT) document: Document, private router: Router, private loginService:ServiceService) {
+    this.loginTitle = 'Login';
+    this.subTitle = 'Log in to enter the platform.';
+    this.usernameHint = 'Username';
+    this.userpassHint = 'Password';
+    this.userError = '';
+    this.passError = '';
+    this.createAccount = 'Create your account';
+    this.loginButtonHint = 'Enter';
+    this.serverErrorMessage = '';
   }
 
   ngOnInit() {}
 
-  onSubmit() {
-    this.router.navigate(['main']);
+  userLogin(){
+    let verified = this.verifyUser(this.user);
+
+    if (verified){
+      this.sendRequest(this.user)
+    }
   }
 
-  userLogin(){
-    this.loginService.loginUser(this.user).subscribe((response:ServiceResponse) =>{
+  verifyUser(user: User): boolean{
 
-      this.serviceResponse = response;
-      if (this.serviceResponse.message == "Success"){
-        this.goToPage();
+    this.userError = '';
+    this.passError = '';
+
+    if (user == null){
+      this.userError = 'Error user';
+      this.passError = 'Error pass';
+      return false;
+    }else {
+      if (user.username == null){
+        this.userError = 'Error user';
+        return false;
       }
-      if (this.serviceResponse.message == "Fail"){
 
+      if (user.userpass == null || user.userpass.length < 3){
+        this.passError = 'Error pass';
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  sendRequest(user: User): void{
+    this.serverErrorMessage = '';
+    this.loginService.loginUser(user).subscribe(
+      response => {
+        console.log("Resposta: ", response);
+        if (response instanceof SuccessResponse) {
+          this.goToPage();
+        }
+      },
+      error => {
+        console.log("Erro na solicitação: ", error);
         this.errorMessageId = true;
-
-        this.errorMessage = this.serviceResponse.message;
+        this.serverErrorMessage = error.error.errorMessage;
       }
-      console.log(response)
-    });
+    );
   }
 
   goToPage(){
