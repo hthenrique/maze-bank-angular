@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit{
   constructor(@Inject(DOCUMENT) document: Document, private router: Router, private loginService:ServiceService) {
     this.loginTitle = 'Login';
     this.subTitle = 'Log in to enter the platform.';
-    this.usernameHint = 'Username';
+    this.usernameHint = 'Email';
     this.userpassHint = 'Password';
     this.userError = '';
     this.passError = '';
