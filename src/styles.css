@@ -124,7 +124,22 @@ body{
   justify-content: space-between;
   align-items: center;
   font-family: Helvetica, sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: blue orange;
 }
+
+body::-webkit-scrollbar {
+  width: 5px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: white;        /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--myRed);    /* color of the scroll thumb */
+}
+
 
 button{
   background-image: linear-gradient(to right, var(--myRed) 0%, #ce1c22  51%, var(--myRed)  100%);
