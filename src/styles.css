@@ -36,6 +36,7 @@ app-main {
   height: 100%;
   display: flex;
   justify-content: center;
+
 }
 
 app-create{
@@ -126,7 +127,10 @@ body{
 }
 
 button{
-  background-color: var(--myRed);
+  background-image: linear-gradient(to right, var(--myRed) 0%, #ce1c22  51%, var(--myRed)  100%);
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
   border: none;
   width: 100%;
   margin-top: 5px;
@@ -134,6 +138,18 @@ button{
   padding: 15px;
   color: white;
   border-radius: 10px;
+  background-size: 200% auto;
+}
+
+.btn-grad {
+  color: white;            
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }
 
 a {

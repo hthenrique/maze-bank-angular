@@ -25,7 +25,7 @@
           <input type="password" placeholder="Confirm Password" id="confirmPass" maxlength="20" name="confirmpass" [(ngModel)]="createUser.confirmPass">
           <label class="errorLabel">{{confirmPassError}}</label>
           <div class="alert alert-danger" *ngIf="errorMessageId" id="errorMessageId" role="alert"> {{serverErrorMessage}} </div>
-          <button type="submit">{{createButtonHint}}</button>
+          <button type="submit" class="btn-grad">{{createButtonHint}}</button>
        </div>
     </form>
   </div>

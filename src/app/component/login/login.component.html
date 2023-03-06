@@ -21,7 +21,7 @@
           <input type="password" placeholder={{userpassHint}} id="userpass" maxlength="20" name="userpass" [(ngModel)]="user.userpass">
           <label class="errorLabel">{{passError}}</label>
           <div class="alert alert-danger" *ngIf="errorMessageId" id="errorMessageId" role="alert"> {{serverErrorMessage}} </div>
-          <button type="submit">{{loginButtonHint}}</button>
+          <button type="submit" class="btn-grad">{{loginButtonHint}}</button>
        </div>
     </form>
   </div>

@@ -17,12 +17,16 @@ header {
   justify-content: space-between;
 }
 
-.balance{
-  margin-right: 36px;
+.logo-header{
+  width: 145px;
+  height: 70px;
+  margin-left: 36px;
+  display: flex;
+  align-items: center;
 }
 
-nav{
-  
+.balance{
+  margin-right: 36px;
 }
 
 nav{
@@ -49,13 +53,13 @@ main{
   color: white;
   font-weight: bold;
   border-radius: 10px;
-  background-color: var(--myRed);
-  box-shadow: 0 0 16px hsl(0deg 0% 0% / 0.390);
+  background-image: linear-gradient(to right, #e52d27 0%, #ce1c22  51%, #e52d27  100%);
+  box-shadow: 0 0 10px hsla(0deg 0% 0% / 0.290);
   align-items: center;
 }
 
 button{
-  box-shadow: 0 0 16px hsl(0deg 0% 0% / 0.390)
+  box-shadow: 0 0 10px hsla(0deg 0% 0% / 0.290);
 }
 
 .main-options{
@@ -87,6 +91,15 @@ main{
     height: 100%;
     padding: 40px;
     background: white;
+  }
+
+.balance{
+    margin-right: 10px;
+  }
+
+.logo-header{
+    margin-left: 10px;
+
   }
 
 }
