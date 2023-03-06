@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/model/user/user';
 import {ServiceService} from "../../service/service.service";
 import {DOCUMENT} from "@angular/common";
-import {ErrorTemplate} from "../../model/response/error-template";
-import {SuccessResponse} from "../../model/response/success-response";
+import {SuccessResponse} from "../../model/response/success/success-response";
 
 @Component({
   selector: 'app-login',
@@ -92,7 +91,8 @@ export class LoginComponent implements OnInit{
   }
 
   goToPage(){
-    this.router.navigate(['/main']);
+    const data = { email: this.user.username };
+    this.router.navigate(['/main'], { state: data });
   }
 
 }

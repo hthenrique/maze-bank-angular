@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {CreateUser} from "../../model/create-user/create-user";
 import {ServiceService} from "../../service/service.service";
-import {SuccessResponse} from "../../model/response/success-response";
-import {ErrorTemplate} from "../../model/response/error-template";
+import {SuccessResponse} from "../../model/response/success/success-response";
 
 @Component({
   selector: 'app-create',
