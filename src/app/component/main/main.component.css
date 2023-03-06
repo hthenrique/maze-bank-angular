@@ -22,7 +22,14 @@ header {
 }
 
 nav{
+  
+}
+
+nav{
   background-color: var(--myRed);
+  box-shadow: var(--boxShadowDefault);
+  border: 1px solid #e7e7e7;
+  margin-bottom: 30px;
 }
 
 body{
@@ -37,13 +44,14 @@ main{
 }
 
 .userPad{
-  height: 50px;
+  height: 60px;
   padding: 10px;
   color: white;
   font-weight: bold;
   border-radius: 10px;
   background-color: var(--myRed);
   box-shadow: 0 0 16px hsl(0deg 0% 0% / 0.390);
+  align-items: center;
 }
 
 button{
@@ -64,6 +72,12 @@ button{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+main{
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 0 16px hsl(0deg 0% 0% / 0.090)
 }
 
 @media screen and (max-width: 920px) {
