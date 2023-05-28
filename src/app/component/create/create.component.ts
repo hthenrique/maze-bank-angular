@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {CreateUser} from "../../model/create-user/create-user";
 import {ServiceService} from "../../service/service.service";
@@ -9,7 +9,7 @@ import {SuccessResponse} from "../../model/response/success/success-response";
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.css']
 })
-export class CreateComponent {
+export class CreateComponent implements OnInit{
 
   createTitle: string;
   createButtonHint: string;
@@ -22,7 +22,15 @@ export class CreateComponent {
 
   errorMessageId: boolean = false;
 
+  btnstate: boolean = false;
+  loading!: HTMLElement;
+
   createUser: CreateUser = new CreateUser();
+
+  ngOnInit() {
+    this.loading = document.getElementById('loading')!;
+    this.loading.style.display = 'none';
+  }
 
   constructor(private router: Router, private service:ServiceService) {
     this.createTitle = 'Create your user';
@@ -38,6 +46,8 @@ export class CreateComponent {
 
     let valid = this.verifyUser(this.createUser);
     if (valid){
+      this.loading.style.display = 'block';
+      this.btnstate = true;
       this.sendRequest(this.createUser);
     }
   }
@@ -91,6 +101,8 @@ export class CreateComponent {
       },
       error => {
         console.log("Erro na solicitação: ", error);
+        this.loading.style.display = 'none';
+        this.btnstate = false;
         this.errorMessageId = true;
         this.serverErrorMessage = error.error.errorMessage;
       }
@@ -99,7 +111,7 @@ export class CreateComponent {
   }
 
   goToPage(){
-    this.router.navigate(['/main']);
+    this.router.navigate(['/login']);
   }
 
 }

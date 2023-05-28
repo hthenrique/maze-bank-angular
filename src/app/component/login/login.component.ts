@@ -5,6 +5,7 @@ import { User } from 'src/app/model/user/user';
 import {ServiceService} from "../../service/service.service";
 import {DOCUMENT} from "@angular/common";
 import {SuccessResponse} from "../../model/response/success/success-response";
+import { NONE_TYPE } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,8 @@ export class LoginComponent implements OnInit{
   loginButtonHint: string;
   serverErrorMessage: string;
   errorMessageId: boolean = false;
+  btnstate: boolean = false;
+  loading!: HTMLElement;
 
   user:User = new User();
 
@@ -39,12 +42,17 @@ export class LoginComponent implements OnInit{
     this.serverErrorMessage = '';
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.loading = document.getElementById('loading')!;
+    this.loading.style.display = 'none';
+  }
 
   userLogin(){
     let verified = this.verifyUser(this.user);
 
     if (verified){
+      this.loading.style.display = 'block';
+      this.btnstate = true;
       this.sendRequest(this.user)
     }
   }
@@ -84,6 +92,8 @@ export class LoginComponent implements OnInit{
       },
       error => {
         console.log("Erro na solicitação: ", error);
+        this.loading.style.display = 'none';
+        this.btnstate = false;
         this.errorMessageId = true;
         this.serverErrorMessage = error.error.errorMessage;
       }
@@ -92,7 +102,7 @@ export class LoginComponent implements OnInit{
 
   goToPage(){
     const data = { email: this.user.username };
-    this.router.navigate(['/main'], { state: data });
+    this.router.navigate(['/login'], { state: data });
   }
 
 }

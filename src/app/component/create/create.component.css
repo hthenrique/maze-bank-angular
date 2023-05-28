@@ -19,6 +19,16 @@ form {
   justify-content: center;
 }
 
+.load{
+  width: auto;
+  height: 20px;
+  margin-top: 5px;
+  margin-left: 42.3%;
+  margin-right: 75%;
+  position: relative;
+  justify-items: center;
+  display: flex; 
+}
 
 @media screen and (max-width: 550px) {
   
