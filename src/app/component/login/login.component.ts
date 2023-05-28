@@ -102,7 +102,7 @@ export class LoginComponent implements OnInit{
 
   goToPage(){
     const data = { email: this.user.username };
-    this.router.navigate(['/login'], { state: data });
+    this.router.navigate(['/main'], { state: data });
   }
 
 }
