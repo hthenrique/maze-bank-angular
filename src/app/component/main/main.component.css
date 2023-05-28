@@ -78,11 +78,6 @@ button{
   align-items: center;
 }
 
-main{
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  box-shadow: 0 0 16px hsl(0deg 0% 0% / 0.090)
-}
 
 @media screen and (max-width: 920px) {
 

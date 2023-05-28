@@ -18,3 +18,13 @@ form {
   box-shadow: 0 0 16px hsl(0deg 0% 0% / 0.190);
   justify-content: center;
 }
+
+
+@media screen and (max-width: 550px) {
+  
+  form {
+    margin: 8px 20px;
+    width: auto;
+  }
+
+}
