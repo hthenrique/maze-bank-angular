@@ -48,7 +48,7 @@ main{
 }
 
 .userPad{
-  height: 60px;
+  height: auto;
   padding: 10px;
   color: white;
   font-weight: bold;

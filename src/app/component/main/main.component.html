@@ -12,14 +12,14 @@
   <main>
     <div class="userPad">
       <div>{{username}}</div>
-      <div align="center">Choose a service</div>
+      <div align="center" class="userPadTitle">Choose a service</div>
     </div>
 
     <div class="main-container">
       <div class="main-options">
-        <button type="submit" class="btn-grad">Deposit</button>
-        <button type="submit" class="btn-grad">Withdraw</button>
-        <button type="submit" class="btn-grad">Transaction Log</button>
+        <button type="submit" class="btn-grad" (click)="goToPage('deposit')">Deposit</button>
+        <button type="submit" class="btn-grad" (click)="goToPage('deposit')">Withdraw</button>
+        <button type="submit" class="btn-grad" (click)="goToPage('deposit')">Transaction Log</button>
       </div>
     </div>
   </main>

@@ -197,11 +197,9 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-
 button{
   background-image: linear-gradient(to right, var(--myRed) 0%, #ce1c22  51%, var(--myRed)  100%);
   text-align: center;
-  text-transform: uppercase;
   transition: 0.5s;
   border: none;
   width: 100%;

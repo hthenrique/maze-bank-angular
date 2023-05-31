@@ -7,6 +7,7 @@ import {CreateUser} from "../model/create-user/create-user";
 import {SuccessResponse} from "../model/response/success/success-response";
 import {ErrorTemplate} from "../model/response/error/error-template";
 import {FetchUserResponse} from "../model/response/fetch/fetch-user-response";
+import {Deposit} from "../model/deposit/deposit";
 
 @Injectable({
   providedIn: 'root'
@@ -39,6 +40,32 @@ export class ServiceService {
 
   createUser(create: CreateUser):Observable<SuccessResponse | ErrorTemplate>{
     return this.httpClient.post<any>(this.baseUrl + "/mazebank/management/create", create, { observe: 'response' })
+    .pipe(
+      map((response: HttpResponse<any>) => {
+        if (response.status === 200 || response.status === 201) {
+          const successResponse = new SuccessResponse();
+          successResponse.code = response.body.code;
+          successResponse.message = response.body.response.message;
+          return successResponse;
+        } else {
+          const errorTemplate = new ErrorTemplate();
+          errorTemplate.errorCode = response.body.errorCode;
+          errorTemplate.errorMessage = response.body.errorMessage;
+          errorTemplate.timeStamp = response.body.timeStamp;
+          return errorTemplate;
+        }
+      })
+    );
+  }
+
+  depositValue(deposit: Deposit, uid: number):Observable<SuccessResponse | ErrorTemplate>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'user-uid': `${uid}`
+      })
+    }
+    return this.httpClient.post<any>(this.baseUrl + "/mazebank/management/deposit/user", deposit, {headers: httpOptions.headers, observe: 'response' })
     .pipe(
       map((response: HttpResponse<any>) => {
         if (response.status === 200 || response.status === 201) {

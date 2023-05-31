@@ -1,0 +1,104 @@
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .maze-header{
+    width: 100%;
+    height: 5px;
+    color: white;
+  }
+  
+  .header{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    justify-content: space-between;
+  }
+  
+  .logo-header{
+    width: 145px;
+    height: 70px;
+    margin-left: 36px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .balance{
+    margin-right: 36px;
+  }
+  
+  nav{
+    background-color: var(--myRed);
+    box-shadow: var(--boxShadowDefault);
+    border: 1px solid #e7e7e7;
+    margin-bottom: 30px;
+  }
+  
+  body{
+    background-color: #F3F3F3;
+  }
+  
+  main{
+    width: 60%;
+    height: 100%;
+    padding: 40px;
+    background: white;
+  }
+  
+  .userPad{
+    height: auto;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    background-image: linear-gradient(to right, #e52d27 0%, #ce1c22  51%, #e52d27  100%);
+    box-shadow: 0 0 10px hsla(0deg 0% 0% / 0.290);
+    align-items: center;
+  }
+
+  .userPadTitle{
+    margin: 0px 10px 0px;
+  }
+  
+  button{
+    box-shadow: 0 0 10px hsla(0deg 0% 0% / 0.290);
+  }
+  
+  .main-options{
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .main-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  @media screen and (max-width: 920px) {
+  
+    main{
+      width: 100%;
+      height: 100%;
+      padding: 40px;
+      background: white;
+    }
+  
+  .balance{
+      margin-right: 10px;
+    }
+  
+  .logo-header{
+      margin-left: 10px;
+  
+    }
+  
+  }

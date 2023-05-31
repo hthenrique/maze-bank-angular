@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ServiceService} from "../../service/service.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {FetchUserResponse} from "../../model/response/fetch/fetch-user-response";
+import { User } from 'src/app/model/user/user';
 
 @Component({
   selector: 'app-main',
@@ -13,6 +14,9 @@ export class MainComponent implements OnInit{
   balance: string;
   username: string;
   userEmail: string | null;
+
+  user: User = new User();
+  fetchUser: FetchUserResponse = new FetchUserResponse();
 
   constructor(private activateRoute: ActivatedRoute, private router: Router, private mainService:ServiceService) {
     this.userEmail = '';
@@ -28,6 +32,12 @@ export class MainComponent implements OnInit{
       if (this.userEmail != null) {
         this.fetchUserOnService(this.userEmail);
       }
+    }else{
+      if (state && state.fetchUser) {
+        this.fetchUser = state.fetchUser;
+        this.username = this.fetchUser.userName;
+        this.balance = this.fetchUser.userBalance.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+      }
     }
   }
 
@@ -36,6 +46,7 @@ export class MainComponent implements OnInit{
       response => {
         console.log("Resposta: ", response);
         if (response instanceof FetchUserResponse) {
+          this.fetchUser = response
           this.username = response.userName;
           this.balance = response.userBalance.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
         }
@@ -44,6 +55,12 @@ export class MainComponent implements OnInit{
         console.log("Erro na solicitação: ", error);
       }
     );
+  }
+
+
+  goToPage(route: string){
+    const data = { fetchUser: this.fetchUser };
+    this.router.navigate(['/'+`${route}`], { state: data });
   }
 
 }

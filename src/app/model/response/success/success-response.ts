@@ -1,4 +1,4 @@
 export class SuccessResponse {
-  code!:string;
+  code!:number;
   message!:string;
 }

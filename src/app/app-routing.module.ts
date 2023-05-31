@@ -4,6 +4,7 @@ import {AppComponent} from "./app.component";
 import {MainComponent} from "./component/main/main.component";
 import {LoginComponent} from "./component/login/login.component";
 import {CreateComponent} from "./component/create/create.component";
+import { DepositComponent } from './component/deposit/deposit.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'create',
     component: CreateComponent
+  },
+  {
+    path: 'deposit',
+    component: DepositComponent
   },
   { path: '**', redirectTo: '' }
 ];
