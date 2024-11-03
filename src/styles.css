@@ -47,6 +47,11 @@ app-create{
   align-items: center;
 }
 
+nav{
+  background-color: var(--myRed);
+  border: 2px solid var(--myRed);
+}
+
 header, footer {
   width: 100%;
   display: flex;
@@ -88,19 +93,16 @@ footer p {
 
 .form {
   border-radius: 10px;
-  margin: 8px 0;
   padding: 10px;
   width: 300px;
-  box-shadow: 0 0 16px hsl(0deg 0% 0% / 0.190);
   justify-content: center;
 }
 
 form {
   border-radius: 10px;
-  margin: 8px 0;
   padding: 10px;
-  box-shadow: 0 0 16px hsl(0deg 0% 0% / 0.190);
   justify-content: center;
+  background: white;
 }
 
 img{
@@ -115,6 +117,12 @@ img{
   align-items: center;
 }
 
+html{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body{
   width: 100%;
   height: 100%;
@@ -126,6 +134,7 @@ body{
   font-family: Helvetica, sans-serif;
   scrollbar-width: thin;
   scrollbar-color: blue orange;
+  background: #e7e7e7;
 }
 
 body::-webkit-scrollbar {
@@ -207,7 +216,6 @@ button{
   margin-bottom: 5px;
   padding: 15px;
   color: white;
-  border-radius: 10px;
   background-size: 200% auto;
 }
 

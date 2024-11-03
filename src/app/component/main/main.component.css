@@ -29,12 +29,7 @@ header {
   margin-right: 36px;
 }
 
-nav{
-  background-color: var(--myRed);
-  box-shadow: var(--boxShadowDefault);
-  border: 1px solid #e7e7e7;
-  margin-bottom: 30px;
-}
+
 
 body{
   background-color: #F3F3F3;
@@ -52,7 +47,6 @@ main{
   padding: 10px;
   color: white;
   font-weight: bold;
-  border-radius: 10px;
   background-image: linear-gradient(to right, #e52d27 0%, #ce1c22  51%, #e52d27  100%);
   box-shadow: 0 0 10px hsla(0deg 0% 0% / 0.290);
   align-items: center;
@@ -72,27 +66,33 @@ button{
 
 .main-container{
   width: 100%;
-  height: 100%;
+  height: 46%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+@media screen and (max-height: 400px){
+  .main-container{
+    height: 80%;
+  }
+}
 
-@media screen and (max-width: 920px) {
+
+@media screen and (max-width: 750px) {
 
   main{
     width: 100%;
-    height: 100%;
     padding: 40px;
     background: white;
   }
 
-.balance{
+
+  .balance{
     margin-right: 10px;
   }
 
-.logo-header{
+  .logo-header{
     margin-left: 10px;
 
   }

@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: "https://mazebank-ht-henrique-2-dev.apps.sandbox-m3.1530.p1.openshiftapps.com"
+  baseUrl: "ec2-3-142-209-255.us-east-2.compute.amazonaws.com:8080"
 };

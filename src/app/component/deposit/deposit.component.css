@@ -52,7 +52,6 @@ header {
     padding: 10px;
     color: white;
     font-weight: bold;
-    border-radius: 10px;
     background-image: linear-gradient(to right, #e52d27 0%, #ce1c22  51%, #e52d27  100%);
     box-shadow: 0 0 10px hsla(0deg 0% 0% / 0.290);
     align-items: center;
@@ -66,24 +65,37 @@ header {
     box-shadow: 0 0 10px hsla(0deg 0% 0% / 0.290);
   }
   
-  .main-options{
-    width: 300px;
+  .deposit-options{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-  
-  .main-container{
+    justify-content: space-between;
+    align-items: center; /* Alinha verticalmente ao centro */
     width: 100%;
-    height: 100%;
+  }
+
+  .deposit-options div {
+    display: flex;
+    flex-direction: column;
+}
+  
+  .deposit-container{
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
+  .depositColum{
+    flex: 1; 
+    width: 100%;
+    margin: 10px;
+    box-sizing: border-box;
+  }
   
+  @media screen and (max-width: 600px){
+
+  }
   
-  @media screen and (max-width: 920px) {
+  @media screen and (max-width: 900px) {
   
     main{
       width: 100%;

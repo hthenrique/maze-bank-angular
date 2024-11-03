@@ -2,9 +2,15 @@
   "configurations": [
     {
       "name": "ng serve",
-      "type": "command",
-      "program": "npm",
-      "args": ["serve"]
+      "type": "npm",
+      "request": "launch",
+      "npmScript": "start",
+      "stopOnEntry": false,
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "runtimeArgs": ["run-script", "start"],
+      "port": 4200,
+      "protocol": "http"
     }
   ]
 }
