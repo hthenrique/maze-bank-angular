@@ -19,7 +19,16 @@ export class ServiceService {
   constructor(private httpClient: HttpClient) { }
 
   loginUser(user:User):Observable<SuccessResponse | ErrorTemplate>{
-    return this.httpClient.post<any>(this.baseUrl + "/mazebank/authenticate/user", user, { observe: 'response' })
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Accept',
+        'Access-Control-Allow-Scheme': 'http, https',
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.httpClient.post<any>(this.baseUrl + "/mazebank/authenticate/user", user, {headers: httpOptions.headers, observe: 'response' })
     .pipe(
       map((response: HttpResponse<any>) => {
         if (response.status === 200 || response.status === 201) {
@@ -34,12 +43,25 @@ export class ServiceService {
           errorTemplate.timeStamp = response.body.timeStamp;
           return errorTemplate;
         }
+      }),
+      catchError((error: any) => {
+        console.error(error);
+        return throwError(error);
       })
-      );
+    );
   }
 
   createUser(create: CreateUser):Observable<SuccessResponse | ErrorTemplate>{
-    return this.httpClient.post<any>(this.baseUrl + "/mazebank/management/create", create, { observe: 'response' })
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Accept',
+        'Access-Control-Allow-Scheme': 'http, https',
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.httpClient.post<any>(this.baseUrl + "/mazebank/management/create", create, {headers: httpOptions.headers, observe: 'response' })
     .pipe(
       map((response: HttpResponse<any>) => {
         if (response.status === 200 || response.status === 201) {
@@ -61,6 +83,10 @@ export class ServiceService {
   depositValue(deposit: Deposit, uid: number):Observable<SuccessResponse | ErrorTemplate>{
     const httpOptions = {
       headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Accept',
+        'Access-Control-Allow-Scheme': 'http, https',
         'Content-Type': 'application/json',
         'user-uid': `${uid}`
       })
@@ -87,6 +113,10 @@ export class ServiceService {
   fetchUser(email: string):Observable<FetchUserResponse | ErrorTemplate>{
     const httpOptions = {
       headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+        'Access-Control-Allow-Headers': 'Content-Type, Accept',
+        'Access-Control-Allow-Scheme': 'http, https',
         'Content-Type': 'application/json',
         'user-key': email
       })
