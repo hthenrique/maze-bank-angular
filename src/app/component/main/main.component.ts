@@ -14,6 +14,7 @@ export class MainComponent implements OnInit{
   balance: string;
   username: string;
   userEmail: string | null;
+  currentUser: string | null;
 
   user: User = new User();
   fetchUser: FetchUserResponse = new FetchUserResponse();
@@ -22,6 +23,7 @@ export class MainComponent implements OnInit{
     this.userEmail = '';
     this.username = '';
     this.balance = ''
+    this.currentUser = null;
   }
 
   ngOnInit(): void{
@@ -30,10 +32,14 @@ export class MainComponent implements OnInit{
     if (state && state.email) {
       this.userEmail = state.email;
       if (this.userEmail != null) {
+        localStorage.setItem('currentUser', this.userEmail);
         this.fetchUserOnService(this.userEmail);
       }
     }else{
-      if (state && state.fetchUser) {
+      this.currentUser = localStorage.getItem('currentUser');
+      if(this.currentUser != null){
+        this.fetchUserOnService(this.currentUser);
+      }else if (state && state.fetchUser) {
         this.fetchUser = state.fetchUser;
         this.username = this.fetchUser.userName;
         this.balance = this.fetchUser.userBalance.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
